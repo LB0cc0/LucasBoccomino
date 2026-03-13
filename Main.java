@@ -21,11 +21,13 @@ public class Main{
 
             if(!heroi.estaVivo()) {
                 heroi.fraseMorte();
+                System.out.println("O Orc venceu a batalha!");
                 break;
             }
 
             if(!orc.estaVivo()) {
                 orc.fraseMorte();
+                System.out.println("O Herói venceu a batalha!");
                 break;
             }
 
