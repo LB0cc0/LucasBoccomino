@@ -1,5 +1,5 @@
-public abstract class Orc extends Enemy {
-    public Orc(String nome, int vida, int dano) {
+public class Orc extends Enemy {
+    public Orc() {
         super("Orlock", 1000, 50);
     }
 

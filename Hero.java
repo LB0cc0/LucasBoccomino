@@ -1,4 +1,7 @@
-public abstract class Hero extends Criatura {
+import java.util.Random;
+import java.util.Scanner;
+
+public class Hero extends Criatura {
     private int danoP = 40;
     private int danoL = 150;
 
@@ -9,7 +12,30 @@ public abstract class Hero extends Criatura {
 
     @Override
     public void atacar(Criatura alvo) {
-        
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Escolha sua arma:");
+       System.out.println("1) Faca - Dano: " + danoP);
+       System.out.println("2) Arco - Dano: " + danoL + " (chance de acerto de 70%)"); 
+
+       int escolha = sc.nextInt();
+
+       while (escolha < 1 || escolha > 2) {
+           System.out.println("Escolha inválida. Por favor, escolha 1 ou 2.");
+           escolha = sc.nextInt();
+       }
+
+       if(escolha == 1) {
+           alvo.dano(this.danoP);
+       } else {
+          Random rand = new Random();
+            int chance = rand.nextInt(100);
+            if(chance >= 50){
+                alvo.dano(this.danoL);
+                System.out.println("Acertou o alvo com o arco! Causou " + this.danoL + " de dano!");
+            } else {
+                System.out.println("Errou o alvo com o arco! Não causou dano.");
+            }
+       }
     }
 
     public void apresentar(){

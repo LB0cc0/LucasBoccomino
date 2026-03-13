@@ -12,6 +12,7 @@ public abstract class Criatura {
     public abstract void fraseMorte();
 
     public void dano(int dano) {
+        System.out.println(this.nome + " recebeu " + dano + " de dano!");
         this.vida -= dano;
         if(!estaVivo()) {
             this.vida = 0;
